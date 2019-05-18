@@ -2,6 +2,11 @@
   "name": "faunagram-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/api/v1/": {
+    "target": "http://localhost:9000"
+    }
+  },
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
