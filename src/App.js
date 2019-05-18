@@ -41,7 +41,6 @@ class App extends Component {
     this._isMounted = true;
     let token = localStorage.getItem('token')
       if (token) {
-      console.log(`${process.env.REACT_APP_API_URI}`)
         fetch(`${process.env.REACT_APP_API_URI}/current_user`, {
           headers: {
           'Contetn-Type': 'application/json',
