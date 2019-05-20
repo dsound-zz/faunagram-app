@@ -10,9 +10,10 @@ class UserCard extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <Card centered>
-        <Image src={`${process.env.REACT_APP_API_URI}${this.props.user.avatar}`} alt={this.props.user.username} avatar />
+        <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.user.avatar}`} alt={this.props.user.username} avatar />
         <Card.Content>
           <Card.Header>{this.props.user.username}</Card.Header>
           <Card.Meta>{this.props.user.created_at}</Card.Meta>

@@ -42,7 +42,7 @@ class UserProfile extends Component {
 
         // ******* USER FORM FOR SIGNUP *******
       <>
-        <Image src={`${process.env.REACT_APP_API_URI}${this.props.currentUser.avatar}`} alt={this.props.currentUser.username} size='small' avatar/>
+        <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.currentUser.avatar}`} alt={this.props.currentUser.username} size='small' avatar/>
         <h2>My name is {this.props.currentUser.name}</h2>
         <h2>but you can call me {this.props.currentUser.username}. I like going for long walks in the park
           and spotting animals and taking photos of them and posting them on Faunagram.</h2><br />

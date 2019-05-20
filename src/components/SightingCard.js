@@ -80,7 +80,7 @@ class SightingCard extends Component {
 
 
  editComment = (body, commentId) => {
-   fetch(`${process.env.REACT_APP_API_URI}/${this.props.sighting.id}/comments/${commentId}`, {
+   fetch(`${process.env.REACT_APP_API_URI}${this.props.sighting.id}/comments/${commentId}`, {
       method: 'PATCH',
       headers: {
         'Authorization': localStorage.getItem('token'),
@@ -104,7 +104,7 @@ class SightingCard extends Component {
 
 
  deleteComment = (commentId) => {
-   fetch(`${process.env.API_URI}/sightings/${this.props.sighting.id}/comments/${commentId}`, {
+   fetch(`${process.env.REACT_APP_API_URI}/sightings/${this.props.sighting.id}/comments/${commentId}`, {
      method: 'DELETE',
      headers: {
        'Authorization': localStorage.getItem('token')
@@ -136,11 +136,11 @@ class SightingCard extends Component {
         <Grid padded centered divided>
 
         <Card value={this.props.sighting.id}>
-          <Image src={`${process.env.REACT_APP_API_URI}${this.props.sighting.image}`} alt={this.props.sighting.gname} />
+          <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.sighting.image}`} alt={this.props.sighting.gname} />
             <Card.Content>
 
 
-            <Image src={`${process.env.REACT_APP_API_URI}${this.props.sighting.user.avatar}`} alt={this.props.sighting.user.username} avatar />   <p>{this.props.sighting.user.username}</p>
+            <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.currentUser.avatar}`} alt={this.props.sighting.user.username} avatar />   <p>{this.props.sighting.user.username}</p>
                 <Card.Header>{this.props.sighting.title}</Card.Header>
                 <Card.Meta>{this.props.sighting.created_at}</Card.Meta>
                 <Card.Description>{this.props.sighting.body}</Card.Description>

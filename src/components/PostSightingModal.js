@@ -47,7 +47,7 @@ class PostSightingModal extends Component {
        <Modal.Header>Post a Sighting</Modal.Header>
        <Modal.Content style={{backgroundColor: 'white'}}>
        <Modal.Description>
-                <Image src={`${process.env.REACT_APP_API_URI}${this.props.currentUser.avatar}`} avatar/>
+                <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.currentUser.avatar}`} avatar/>
          <Form onSubmit={this.submitForm}>
           <Form.Group widths='equal'>
             <Form.Input fluid label='Title' placeholder='Title'

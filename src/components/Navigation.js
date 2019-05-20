@@ -14,6 +14,7 @@ class Navigation extends Component {
           };
 
   render () {
+    console.log(this.props)
     return (
       <>
       <Header  size="huge" className="monoton" textAlign='center'
@@ -41,7 +42,7 @@ class Navigation extends Component {
         </Menu.Menu>
           :
         <Menu.Menu position='right'>
-                <Image src={`${process.env.API_URI}${this.props.currentUser.avatar}`} as={Link} to={`/currentUser/${this.props.currentUser.id}`} style={{'fontSize':42}} avatar/>
+                <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.currentUser.avatar}`} as={Link} to={`/currentUser/${this.props.currentUser.id}`} style={{'fontSize':42}} avatar/>
           <Menu.Item name='Log out' as={Link} to={'/logout'}/>
         </Menu.Menu>
         }

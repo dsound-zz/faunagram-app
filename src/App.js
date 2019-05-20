@@ -15,6 +15,7 @@ import './App.css';
 
 
 
+
 class App extends Component {
     _isMounted = false;
 
@@ -68,7 +69,7 @@ class App extends Component {
         })
       )
       .then(
-        fetch(`${process.env.API_URI}/animals`)
+        fetch(`${process.env.REACT_APP_API_URI}/animals`)
         .then(r => r.json())
         .then(fetchedAnimals => {
           if (fetchedAnimals.errors) {
@@ -272,7 +273,7 @@ class App extends Component {
 
 
   likeSighting = (like, sightingId) => {
-    fetch(`${process.env.REACT_APP_API_URI}/sightingskk/${sightingId}`, {
+    fetch(`${process.env.REACT_APP_API_URI}/sightings/${sightingId}`, {
       method: 'PATCH',
       headers: {
         'Authorization': localStorage.getItem('token'),
@@ -298,7 +299,7 @@ class App extends Component {
 
 
   render() {
-
+    
     return (
        
       // SETUP COLUMNS FOR SCREEN LAYOUT 

@@ -44,7 +44,7 @@ class EditSightingModal extends Component {
          <Modal.Header>Edit Sighting</Modal.Header>
         <Modal.Content style={{backgroundColor: 'white'}}>
         <Modal.Description>
-            <Image src={`${process.env.API_URI}${this.props.currentUser.avatar}`} avatar/>
+            <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.currentUser.avatar}`} avatar/>
         <Form onSubmit={this.submitForm}>
           <Form.Group widths='equal'>
             <Form.Input fluid label='Title' placeholder={this.props.sighting.title}
