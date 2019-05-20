@@ -2,13 +2,15 @@
   "name": "faunagram-app",
   "version": "0.1.0",
   "private": true,
-  
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "semantic-ui-react": "^0.87.1"
+  },
+  "engines": {
+    "node": "10.x"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,5 +32,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "An informative and social media app for all things urban wildlife. As our urban centers have cleaned up through the years, many animal species are returning. This app allows for people to share sightings of these creatures. See video DEMO here. Screenshot",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsound-zz/faunagram-frontend.git"
+  },
+  "author": "demian_sims",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsound-zz/faunagram-frontend/issues"
+  },
+  "homepage": "https://github.com/dsound-zz/faunagram-frontend#readme"
 }
