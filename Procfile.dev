@@ -1,2 +1,0 @@
-frontend: PORT=3000 yarn --cwd client start
-backedn: PORT=9000 bundle exec rails s 
