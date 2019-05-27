@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { Menu, Icon, Image, Header, Grid } from 'semantic-ui-react';
+import { Menu, Icon, Image, Header} from 'semantic-ui-react';
 
 
 class Navigation extends Component {
@@ -14,7 +14,7 @@ class Navigation extends Component {
           };
 
   render () {
-    console.log(this.props)
+
     return (
       <>
       
