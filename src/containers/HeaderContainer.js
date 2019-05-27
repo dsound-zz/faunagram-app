@@ -6,7 +6,7 @@ import Navigation from '../components/Navigation'
 const HeaderContainer = props => {
   return (
     <>
-      <Container style={{boxShadow: '2px 2px 7px 1px rgba(200,221,224,0.44)'}}>
+      <Container style={{boxShadow: '4px 4px 7px 2px rgba(200,221,224,0.44)'}}>
       <Grid width={16} centered padded>
          <Navigation currentUser={props.currentUser} handleOpenModal={props.handleOpenModal} />
         

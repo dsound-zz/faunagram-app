@@ -18,7 +18,6 @@ class PostSightingModal extends Component {
   handleOpen = () => this.setState({ modalOpen: true })
 
   handleClose = () =>  {
-    debugger
     this.props.history.push('/home')
   this.setState({ modalOpen: false })
 }
@@ -33,6 +32,7 @@ class PostSightingModal extends Component {
 
 
   render() {
+    console.log(this.state)
     return (
       <div>
       {this.props.currentUser ?

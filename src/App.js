@@ -305,7 +305,7 @@ class App extends Component {
       // SETUP COLUMNS FOR SCREEN LAYOUT 
      
      <Grid>
-        <Grid.Column width={3}>
+        <Grid.Column width={3} >
           </Grid.Column>
             <Grid.Column width={10}>
               <HeaderContainer currentUser={this.state.currentUser} animals={this.state.animals} handleOpenModal={this.handleOpenModal}  />
