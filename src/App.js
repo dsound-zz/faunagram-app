@@ -42,7 +42,7 @@ class App extends Component {
     this._isMounted = true;
     let token = localStorage.getItem('token')
       if (token) {
-        fetch(`${process.env.REACT_APP_API_URI}current_user`, {
+        fetch(`${process.env.REACT_APP_API_URI}/current_user`, {
           headers: {
           'Contetn-Type': 'application/json',
           'Accept': 'application/json',
@@ -58,7 +58,7 @@ class App extends Component {
         }
       })
       .then(
-        fetch(`${process.env.REACT_APP_API_URI}users`)
+        fetch(`${process.env.REACT_APP_API_URI}/users`)
         .then(r => r.json())
         .then(fetchedUsers => {
           if (fetchedUsers.errors) {
@@ -69,7 +69,7 @@ class App extends Component {
         })
       )
       .then(
-        fetch(`${process.env.REACT_APP_API_URI}animals`)
+        fetch(`${process.env.REACT_APP_API_URI}/animals`)
         .then(r => r.json())
         .then(fetchedAnimals => {
           if (fetchedAnimals.errors) {
@@ -79,7 +79,7 @@ class App extends Component {
         })
       )
       .then(
-        fetch(`${process.env.REACT_APP_API_URI}sightings`)
+        fetch(`${process.env.REACT_APP_API_URI}/sightings`)
         .then(r => r.json())
         .then(fetchedSightings => {
           if (this._isMounted) {
