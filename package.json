@@ -44,6 +44,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dsound-zz/faunagram-frontend/issues"
-  },
-  "homepage": "https://faunagram-app.herokuapp.com"
+  }
 }
