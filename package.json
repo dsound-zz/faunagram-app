@@ -10,7 +10,7 @@
     "semantic-ui-react": "^0.87.1"
   },
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   },
   "scripts": {
     "start": "react-scripts start",
