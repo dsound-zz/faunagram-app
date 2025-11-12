@@ -131,11 +131,9 @@ class App extends Component {
           this.setState({
             currentUser: response.user
           })
-
-            this.setState({ users: response.user, ...this.state.users })
-             alert(`Login, ${response.user.name}`)
-            this.props.history.push(`/login`)
-
+          this.setState({ users: [...this.state.users, response.user] })
+          alert(`Welcome, ${response.user.name}!`)
+          this.props.history.push(`/home`)
         }
       })
     } else {
