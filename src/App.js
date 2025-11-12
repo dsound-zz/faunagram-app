@@ -44,11 +44,11 @@ class App extends Component {
       if (token) {
         fetch(`${process.env.REACT_APP_API_URI}/current_user`, {
           headers: {
-          'Contetn-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': token
-        }
-      })
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        })
       .then(res => res.json())
       .then(response => {
         if (response.errors) {
@@ -176,9 +176,9 @@ class App extends Component {
     if (password === passwordConfirmation) {
       const formData = new FormData(event.target)
       fetch(`${process.env.REACT_APP_API_URI}/users/${this.state.currentUser.id}`, {
-        method: 'PATCH',
+        method: 'PUT',
         headers: {
-          'Authorization': localStorage.getItem('token')
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         body: formData
       })
@@ -203,7 +203,7 @@ class App extends Component {
     fetch(`${process.env.REACT_APP_API_URI}/users/${userId}`, {
       method: 'DELETE',
       headers: {
-        'Authorization': localStorage.getItem('token')
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
     })
     const usersCopy = this.state.users.slice()
@@ -223,7 +223,7 @@ class App extends Component {
     fetch(`${process.env.REACT_APP_API_URI}/sightings`, {
       method: 'POST',
       headers: {
-        'Authorization': localStorage.getItem('token')
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
       },
       body: formData
       })
@@ -242,9 +242,9 @@ class App extends Component {
     formData.append("id", sightingId)
     debugger
     fetch(`${process.env.REACT_APP_API_URI}/sightings/${sightingId}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: {
-        'Authorization': localStorage.getItem('token')
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
       },
       body: formData
       })
@@ -259,10 +259,10 @@ class App extends Component {
 
 
   deleteSighting = (sightingId) => {
-    fetch(`${process.env.REACT_APP_API_URI}/${sightingId}`, {
+    fetch(`${process.env.REACT_APP_API_URI}/sightings/${sightingId}`, {
       method: 'DELETE',
       headers: {
-       'Authorization': localStorage.getItem('token')
+       'Authorization': `Bearer ${localStorage.getItem('token')}`
      }
     })
      const sightingsCopy = this.state.sightings.slice()
@@ -274,9 +274,9 @@ class App extends Component {
 
   likeSighting = (like, sightingId) => {
     fetch(`${process.env.REACT_APP_API_URI}/sightings/${sightingId}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: {
-        'Authorization': localStorage.getItem('token'),
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },

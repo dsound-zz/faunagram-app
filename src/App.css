@@ -1,5 +1,243 @@
+/* Modern App Styling */
 * {
+  box-sizing: border-box;
+}
 
-  padding: 5px;
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+}
+
+/* Grid Layout Improvements */
+.ui.grid {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ui.grid > .column {
+  padding: 1rem !important;
+}
+
+/* Card Enhancements */
+.ui.card {
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  background: white !important;
+  overflow: hidden;
+}
+
+.ui.card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ui.card .image {
+  border-radius: 16px 16px 0 0 !important;
+  overflow: hidden;
+}
+
+.ui.card .image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ui.card:hover .image img {
+  transform: scale(1.05);
+}
+
+/* Header Styling */
+.ui.header {
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 1rem 0 !important;
+}
+
+.ui.header h1 {
+  font-size: 3.5rem !important;
+  font-weight: 700 !important;
+  background: linear-gradient(45deg, #fff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem !important;
+}
+
+.ui.header h3 {
+  font-size: 1.2rem !important;
+  font-weight: 300 !important;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* Menu/Navigation Styling */
+.ui.menu {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  margin: 1rem 0 !important;
+  padding: 0.5rem !important;
+}
+
+.ui.menu .item {
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ui.menu .item:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.ui.menu .icon {
+  transition: transform 0.3s ease;
+}
+
+.ui.menu .item:hover .icon {
+  transform: scale(1.1);
+}
+
+/* Button Enhancements */
+.ui.button {
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  font-weight: 600 !important;
+}
+
+.ui.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.ui.blue.button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+}
+
+.ui.blue.button:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+}
+
+/* Form Styling */
+.ui.form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ui.form .field input,
+.ui.form .field textarea {
+  border-radius: 8px !important;
+  border: 2px solid #e0e0e0 !important;
+  transition: border-color 0.3s ease !important;
+}
+
+.ui.form .field input:focus,
+.ui.form .field textarea:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+/* Card Content Styling */
+.ui.card .content {
+  padding: 1.5rem !important;
+}
+
+.ui.card .header {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.ui.card .meta {
+  color: #999 !important;
+  font-size: 0.9rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.ui.card .description {
+  color: #666 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Avatar Styling */
+.ui.avatar.image {
+  border: 3px solid white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.3s ease;
+}
+
+.ui.avatar.image:hover {
+  transform: scale(1.1);
+}
+
+/* Icon Styling */
+i.icon {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+i.icon:hover {
+  transform: scale(1.2);
+  color: #667eea !important;
+}
+
+i.icon.red:hover {
+  color: #e74c3c !important;
+}
+
+/* Divider Styling */
+.ui.divider {
+  margin: 2rem 0 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ui.header h1 {
+    font-size: 2.5rem !important;
+  }
   
+  .ui.grid > .column {
+    padding: 0.5rem !important;
+  }
+  
+  .ui.card {
+    margin: 0.5rem 0 !important;
+  }
+}
+
+/* Loading States */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* Error States */
+.error {
+  background: #fee;
+  color: #c33;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border-left: 4px solid #c33;
+}
+
+/* Success States */
+.success {
+  background: #efe;
+  color: #3c3;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border-left: 4px solid #3c3;
 }

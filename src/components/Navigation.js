@@ -45,7 +45,11 @@ class Navigation extends Component {
         </Menu.Menu>
           :
           <Menu.Menu position='right'>
-                <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.currentUser.avatar}`} as={Link} to={`/currentUser/${this.props.currentUser.id}`} style={{'fontSize':42}} avatar/>
+                {this.props.currentUser.avatar_url ? (
+                  <Image src={this.props.currentUser.avatar_url} as={Link} to={`/currentUser/${this.props.currentUser.id}`} style={{fontSize: 42}} avatar/>
+                ) : (
+                  <Image src="https://via.placeholder.com/40?text=U" as={Link} to={`/currentUser/${this.props.currentUser.id}`} style={{fontSize: 42}} avatar/>
+                )}
           <Menu.Item name='Log out' as={Link} to={'/logout'}/>
         </Menu.Menu>
         }

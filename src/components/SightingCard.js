@@ -59,16 +59,17 @@ class SightingCard extends Component {
 
   addComment = (event) => {
     event.preventDefault()
-    fetch(`${process.env.REACT_APP_API_URI}/sightings/${this.props.sighting.id}/comments`, {
+     fetch(`${process.env.REACT_APP_API_URI}/comments`, {
      method: 'POST',
      headers: {
-       'Authorization': localStorage.getItem('token'),
+       'Authorization': `Bearer ${localStorage.getItem('token')}`,
        'Content-Type': 'application/json',
        'Accept': 'application/json',
      },
      body: JSON.stringify({
        body: this.state.commentBody,
-       user_id: this.props.currentUser.id,
+       commentable_type: 'Sighting',
+       commentable_id: this.props.sighting.id,
        username: this.props.currentUser.username
      })
    })
@@ -80,17 +81,15 @@ class SightingCard extends Component {
 
 
  editComment = (body, commentId) => {
-   fetch(`${process.env.REACT_APP_API_URI}${this.props.sighting.id}/comments/${commentId}`, {
-      method: 'PATCH',
+   fetch(`${process.env.REACT_APP_API_URI}/comments/${commentId}`, {
+      method: 'PUT',
       headers: {
-        'Authorization': localStorage.getItem('token'),
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
       body: JSON.stringify({
-        body: body,
-        id: commentId,
-        user_id: this.props.currentUser
+        body: body
       })
     })
     .then(r => r.json())
@@ -104,10 +103,10 @@ class SightingCard extends Component {
 
 
  deleteComment = (commentId) => {
-   fetch(`${process.env.REACT_APP_API_URI}/sightings/${this.props.sighting.id}/comments/${commentId}`, {
+   fetch(`${process.env.REACT_APP_API_URI}/comments/${commentId}`, {
      method: 'DELETE',
      headers: {
-       'Authorization': localStorage.getItem('token')
+       'Authorization': `Bearer ${localStorage.getItem('token')}`
      }
   })
     const commentsCopy = this.state.comments.slice()
@@ -136,18 +135,35 @@ class SightingCard extends Component {
         <Grid padded centered divided>
 
         <Card value={this.props.sighting.id}>
-          <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.sighting.image}`} alt={this.props.sighting.gname} />
+          {this.props.sighting.image_url ? (
+            <Image src={this.props.sighting.image_url} alt={this.props.sighting.title || 'Sighting'} />
+          ) : (
+            <Image src="https://via.placeholder.com/400x300?text=No+Image" alt="No image" />
+          )}
             <Card.Content>
 
 
-            <Image src={`${process.env.REACT_APP_BASE_URI}${this.props.currentUser.avatar}`} alt={this.props.sighting.user.username} avatar />   <p>{this.props.sighting.user.username}</p>
+            {this.props.sighting.user && (
+              <>
+                {this.props.sighting.user.avatar_url ? (
+                  <Image src={this.props.sighting.user.avatar_url} alt={this.props.sighting.user.username} avatar />
+                ) : (
+                  <Image src="https://via.placeholder.com/40?text=U" alt={this.props.sighting.user.username} avatar />
+                )}
+                <p style={{ display: 'inline-block', marginLeft: '0.5rem', fontWeight: '600' }}>
+                  {this.props.sighting.user.username || this.props.sighting.user.name}
+                </p>
+              </>
+            )}
                 <Card.Header>{this.props.sighting.title}</Card.Header>
                 <Card.Meta>{this.props.sighting.created_at}</Card.Meta>
                 <Card.Description>{this.props.sighting.body}</Card.Description>
             </Card.Content>
             <Card.Content extra>
-              {/* <Icon name='like' size='large' color='red' onClick={this.handleLikesClick}/> */}
-                {/* <p>{this.state.likes}</p> */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }} onClick={this.handleLikesClick}>
+                <Icon name='like' size='large' color='red' />
+                <p style={{ margin: 0, fontWeight: '600', color: '#e74c3c', fontSize: '1.1rem' }}>{this.state.likes || 0}</p>
+              </div>
             </Card.Content>
               {this.props.currentUser.id === this.props.sighting.user_id ?
             <Card.Content>
