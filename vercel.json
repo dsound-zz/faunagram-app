@@ -4,6 +4,9 @@
   "devCommand": "npm start",
   "installCommand": "npm install",
   "framework": "create-react-app",
+  "env": {
+    "NODE_OPTIONS": "--openssl-legacy-provider"
+  },
   "rewrites": [
     {
       "source": "/(.*)",
@@ -11,4 +14,3 @@
     }
   ]
 }
-
